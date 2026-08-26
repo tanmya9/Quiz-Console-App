@@ -60,4 +60,9 @@ public class Question{
     public void setAns(String ans) {
         this.ans = ans;
     }
+    @Override
+    public String toString() {
+        return "Question [question=" + question + ", id=" + id + ", opt1=" + opt1 + ", opt2=" + opt2 + ", opt3=" + opt3
+        + ", opt4=" + opt4 + ", ans=" + ans + "]"; //prints the object in a particulr format
+    }
 }
