@@ -17,15 +17,39 @@ public class QuestionService {
         int i=0;
         for(Question q : questions)
         {
-            //System.out.println(q);//it will call the toString method //print the Question object (which includes all the fields of a question)
-            System.out.println("Question "+q.getId()+". "+q.getQuestion());
-            System.out.println(q.getOpt1());
+            //System.out.println(q);//it will call the toString method (in Question.java) //print the Question object (which includes all the fields of a question)
+            System.out.println("Question "+q.getId()+". "+q.getQuestion()); //displays id and the question
+            System.out.println(q.getOpt1()); // displays all the options of the questions
             System.out.println(q.getOpt2());
             System.out.println(q.getOpt3());
             System.out.println(q.getOpt4());
-            Scanner sc=new Scanner(System.in);
+            System.out.print("Your Answer: ");            
+            Scanner sc=new Scanner(System.in); //to take answer as an input from the user
             selection[i]=sc.nextLine(); //storing user input in selection, but the selection value will keep on changing for every user input
             i++;
         }
+        System.out.println("Your Answers:");
+        for(String s: selection)
+        {
+            System.out.println(s);
+        }
+
+        
+    }
+    public void printScore()
+    {
+        int score=0;
+        
+        for(int i=0;i<questions.length;i++)
+        {
+            Question que=questions[i];
+            String actualAns=que.getAns();
+            String userAns=selection[i];
+            if(actualAns.equals(userAns))
+            {
+                score++;
+            }
+        }
+        System.out.println("Your Score: "+score);
     }
 }
